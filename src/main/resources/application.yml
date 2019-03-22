@@ -1,0 +1,18 @@
+server:
+  port: 8090
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8001/eureka/
+zuul:
+  prefix: /glarimy
+  routes:
+    employee-service:
+      path: /employee/**
+      serviceId: employee-service
+    static:
+      path: /home/**
+spring:
+  application:
+    name: zuul-server
